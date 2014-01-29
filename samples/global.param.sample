@@ -9,6 +9,7 @@ NLAYER		3	# number of soil layers
 NODES		10	# number of soil thermal nodes 
 TIME_STEP 	3	# model time step in hours (set to 24 if FULL_ENERGY = FALSE, set to < 24 if FULL_ENERGY = TRUE)
 SNOW_STEP	3	# time step in hours for which to solve the snow model (should = TIME_STEP if TIME_STEP < 24)
+NOLEAP    TRUE  # Default is LEAP
 STARTYEAR	2000	# year model simulation starts
 STARTMONTH	01	# month model simulation starts
 STARTDAY	01 	# day model simulation starts
