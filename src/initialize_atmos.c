@@ -270,7 +270,7 @@ void initialize_atmos(atmos_data_struct        *atmos,
         local_startyear--;
       }
       local_startday = month_days[local_startmonth-1];
-      if (local_startyear % 4 == 0 && local_startmonth == 2) {
+      if (local_startyear % 4 == 0 && local_startmonth == 2 && global_param.leapdays == 29) {
         local_startday++;
       }
     }
@@ -284,7 +284,7 @@ void initialize_atmos(atmos_data_struct        *atmos,
   day_in_year = local_startday;
   for (month=1; month <local_startmonth; month++) {
     days_in_month = month_days[month-1];
-    if (local_startyear % 4 == 0 && month == 2) {
+    if (local_startyear % 4 == 0 && month == 2 && global_param.leapdays == 29) {
       days_in_month++;
     }
     day_in_year += days_in_month;
@@ -307,7 +307,7 @@ void initialize_atmos(atmos_data_struct        *atmos,
       day_in_year++;
       day++;
       days_in_month = month_days[month-1];
-      if (year % 4 == 0 && month == 2) {
+      if (year % 4 == 0 && month == 2 && global_param.leapdays == 29) {
         days_in_month++;
       }
       if (day > days_in_month) {

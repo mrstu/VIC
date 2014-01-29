@@ -145,6 +145,7 @@ void initialize_global() {
   options.FULL_ENERGY           = FALSE;
   options.GRND_FLUX_TYPE        = GF_410;
   options.IMPLICIT              = FALSE;
+  options.NOLEAP                = FALSE;
   options.LAKES                 = FALSE;
   options.LAKE_PROFILE          = FALSE;
   options.LW_CLOUD              = LW_CLOUD_DEARDORFF;

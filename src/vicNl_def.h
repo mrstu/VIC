@@ -674,6 +674,7 @@ typedef struct {
                             LAI_FROM_VEGPARAM = read LAI values from the veg param file */
   char   LAKE_PROFILE;   /* TRUE = user-specified lake/area profile */
   char   ORGANIC_FRACT;  /* TRUE = organic matter fraction of each layer is read from the soil parameter file; otherwise set to 0.0. */
+  char   NOLEAP;  		 /* TRUE = no 29th day in February of leap year; FALSE = 29 days in February of leap year.*/
 
   // state options
   char   BINARY_STATE_FILE; /* TRUE = model state file is binary (default) */
@@ -740,6 +741,7 @@ typedef struct {
   int    forceyear[2];  /* year forcing files start */
   int    nrecs;      /* Number of time steps simulated */
   int    skipyear;   /* Number of years to skip before writing output data */
+  int    leapdays;   /* Number of days in February of leap year (28 for NOLEAP, 29 if NOLEAP=FALSE*/
   int    startday;   /* Starting day of the simulation */
   int    starthour;  /* Starting hour of the simulation */
   int    startmonth; /* Starting month of the simulation */

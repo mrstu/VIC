@@ -138,6 +138,7 @@ global_param_struct get_global_param(filenames_struct *names,
   /** Initialize global parameters (that aren't part of the options struct) **/
   global.dt            = MISSING;
   global.nrecs         = MISSING;
+  global.leapdays      = MISSING;
   global.startyear     = MISSING;
   global.startmonth    = MISSING;
   global.startday      = MISSING;
@@ -228,6 +229,16 @@ global_param_struct get_global_param(filenames_struct *names,
       }
       else if(strcasecmp("ENDDAY",optstr)==0) {
         sscanf(cmdstr,"%*s %d",&global.endday);
+      }
+      else if(strcasecmp("NOLEAP",optstr)==0) {
+		sscanf(cmdstr,"%*s %s",flgstr);
+		if(strcasecmp("TRUE",flgstr)==0) {
+			global.leapdays = 28;
+			options.NOLEAP=TRUE;
+		}
+		else{global.leapdays = 29;
+			options.NOLEAP=FALSE;
+		}
       }
       else if(strcasecmp("FULL_ENERGY",optstr)==0) {
         sscanf(cmdstr,"%*s %s",flgstr);

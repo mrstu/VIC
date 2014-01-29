@@ -59,8 +59,10 @@ dmy_struct *make_dmy(global_param_struct *global)
     endday   = global->endday;
     endmonth = global->endmonth;
     endyear  = global->endyear;
-    if(LEAPYR(endyear)) days[1] = 29;
+
+    if ( LEAPYR(year) ) days[1] = global->leapdays;
     else days[1] = 28;
+
     if(endday < days[global->endmonth-1]) endday++;
     else {
       endday = 1;
@@ -80,7 +82,7 @@ dmy_struct *make_dmy(global_param_struct *global)
     tmphr    = hr;
     while(!DONE) {
       get_next_time_step(&tmpyear,&tmpmonth,&tmpday,&tmphr,
-			 &tmpjday,global->dt);
+			 &tmpjday,global->dt,global->leapdays);
       ii++;
       if(tmpyear == endyear)
 	if(tmpmonth == endmonth)
@@ -109,8 +111,10 @@ dmy_struct *make_dmy(global_param_struct *global)
 
   /** Create Date Structure for each Modeled Time Step **/
   jday = day;
-  if( LEAPYR(year) ) days[1] = 29;
+
+  if ( LEAPYR(year) ) days[1] = global->leapdays;
   else days[1] = 28;
+
   for ( ii = 0; ii < month-1; ii++ ) 
     jday += days[ii];
   
@@ -124,7 +128,7 @@ dmy_struct *make_dmy(global_param_struct *global)
     temp[ii].year  = year;
     temp[ii].day_in_year = jday;
 
-    get_next_time_step(&year,&month,&day,&hr,&jday,global->dt);
+    get_next_time_step(&year,&month,&day,&hr,&jday,global->dt,global->leapdays);
 
     ii++;
     if(ii == global->nrecs) DONE=TRUE;
@@ -135,27 +139,29 @@ dmy_struct *make_dmy(global_param_struct *global)
   for ( i = 0; i < 2; i++ ) {
     if(param_set.FORCE_DT[i] != MISSING) {
       if(global->forceyear[i] > 0) {
-	tmpyear  = global->forceyear[i];
-	tmpmonth = global->forcemonth[i];
-	tmpday   = global->forceday[i];
-	tmphr    = global->forcehour[i];
-	tmpjday  = tmpday;
-	if ( LEAPYR(tmpyear) ) days[1] = 29;
-	else days[1] = 28;
-	for ( ii = 0; ii < tmpmonth-1; ii++) 
-	  tmpjday += days[ii];
-	
-	step     = (int)(1./((float)global->dt/24.));
-	while(tmpyear < temp[0].year || 
-	      (tmpyear == temp[0].year && tmpjday < temp[0].day_in_year) ||
-	      (tmpyear == temp[0].year && tmpjday == temp[0].day_in_year && tmphr < temp[0].hour)) {
-	  
-	  get_next_time_step(&tmpyear,&tmpmonth,&tmpday,&tmphr,
-			     &tmpjday,global->dt);
-	  
-	  global->forceskip[i] ++;
+		tmpyear  = global->forceyear[i];
+		tmpmonth = global->forcemonth[i];
+		tmpday   = global->forceday[i];
+		tmphr    = global->forcehour[i];
+		tmpjday  = tmpday;
 
-	}
+	    if ( LEAPYR(year) ) days[1] = global->leapdays;
+	    else days[1] = 28;
+
+		for ( ii = 0; ii < tmpmonth-1; ii++)
+		  tmpjday += days[ii];
+
+		step     = (int)(1./((float)global->dt/24.));
+		while(tmpyear < temp[0].year ||
+			  (tmpyear == temp[0].year && tmpjday < temp[0].day_in_year) ||
+			  (tmpyear == temp[0].year && tmpjday == temp[0].day_in_year && tmphr < temp[0].hour)) {
+
+		  get_next_time_step(&tmpyear,&tmpmonth,&tmpday,&tmphr,
+					 &tmpjday,global->dt,global->leapdays);
+
+		  global->forceskip[i] ++;
+	
+		}
       }
     }
   }
@@ -176,7 +182,8 @@ void get_next_time_step(int *year,
 			int *day, 
 			int *hr, 
 			int *jday, 
-			int dt) {
+			int dt,
+			int leapdays) {
   
   int    days[12]={31,28,31,30,31,30,31,31,30,31,30,31};
   int daymax;
@@ -186,10 +193,10 @@ void get_next_time_step(int *year,
     *hr=0;
     *day += 1;
     *jday += 1;
-    
-    if(LEAPYR(*year)) days[1] = 29;
+
+    if ( LEAPYR(*year) ) days[1] = leapdays;
     else days[1] = 28;
-    
+
     if(*day > days[*month-1]) {
       *day = 1;
       *month += 1;

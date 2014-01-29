@@ -176,6 +176,12 @@ void display_current_settings(int                 mode,
   fprintf(stderr,"RESOLUTION\t\t%f\n",global->resolution);
   fprintf(stderr,"TIME_STEP\t\t%d\n",global->dt);
   fprintf(stderr,"SNOW_STEP\t\t%d\n",options.SNOW_STEP);
+  if (options.NOLEAP)
+	  fprintf(stderr,"NOLEAP (\t\t%d\n",options.NOLEAP);
+  else
+	fprintf(stderr,"NOLEAP\t\tTRUE\t%s\n",options.NOLEAP);
+    fprintf(stderr,"(No. of Leap Year February Days\t\t%d\n",global->leapdays);
+
   fprintf(stderr,"STARTYEAR\t\t%d\n",global->startyear);
   fprintf(stderr,"STARTMONTH\t\t%d\n",global->startmonth);
   fprintf(stderr,"STARTDAY\t\t%d\n",global->startday);

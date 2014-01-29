@@ -1,0 +1,76 @@
+make depend
+make[1]: Entering directory `/home/stumbaugh/devel/VIC/src'
+gcc -I. -g -Wall -Wno-unused -M CalcAerodynamic.c CalcBlowingSnow.c SnowPackEnergyBalance.c StabilityCorrection.c advected_sensible_heat.c alloc_atmos.c arno_evap.c calc_air_temperature.c calc_atmos_energy_bal.c calc_cloud_cover_fraction.c calc_forcing_stats.c calc_longwave.c calc_rainonly.c calc_root_fraction.c calc_snow_coverage.c calc_surf_energy_bal.c calc_veg_params.c calc_water_energy_balance_errors.c canopy_evap.c check_files.c check_state_file.c close_files.c cmd_proc.c compress_files.c compute_dz.c compute_pot_evap.c compute_treeline.c compute_zwt.c correct_precip.c display_current_settings.c dist_prec.c estimate_T1.c free_dist_prcp.c free_vegcon.c frozen_soil.c full_energy.c func_atmos_energy_bal.c func_atmos_moist_bal.c func_canopy_energy_bal.c func_surf_energy_bal.c get_dist.c get_force_type.c get_global_param.c initialize_atmos.c initialize_model_state.c initialize_global.c initialize_new_storm.c initialize_snow.c initialize_soil.c initialize_veg.c latent_heat_from_snow.c make_cell_data.c make_dist_prcp.c make_dmy.c make_energy_bal.c make_in_and_outfiles.c make_snow_data.c make_veg_var.c massrelease.c modify_Ksat.c mtclim_vic.c mtclim_wrapper.c newt_raph_func_fast.c nrerror.c open_file.c open_state_file.c output_list_utils.c parse_output_info.c penman.c prepare_full_energy.c put_data.c read_arcinfo_ascii.c read_atmos_data.c read_forcing_data.c read_initial_model_state.c read_snowband.c read_soilparam.c read_soilparam_arc.c read_veglib.c read_vegparam.c redistribute_during_storm.c root_brent.c runoff.c set_output_defaults.c snow_intercept.c snow_melt.c snow_utility.c soil_conduction.c soil_thermal_eqn.c solve_snow.c surface_fluxes.c svp.c vicNl.c vicerror.c write_data.c write_forcing_file.c write_header.c write_layer.c write_model_state.c write_snow_data.c write_soilparam.c write_vegparam.c write_vegvar.c lakes.eb.c initialize_lake.c read_lakeparam.c ice_melt.c IceEnergyBalance.c water_energy_balance.c water_under_ice.c  > .depend
+make[1]: Leaving directory `/home/stumbaugh/devel/VIC/src'
+make model
+make[1]: Entering directory `/home/stumbaugh/devel/VIC/src'
+gcc -I. -g -Wall -Wno-unused   -c -o get_global_param.o get_global_param.c
+gcc -I. -g -Wall -Wno-unused   -c -o initialize_atmos.o initialize_atmos.c
+gcc -I. -g -Wall -Wno-unused   -c -o initialize_model_state.o initialize_model_state.c
+gcc -I. -g -Wall -Wno-unused   -c -o initialize_global.o initialize_global.c
+gcc -I. -g -Wall -Wno-unused   -c -o initialize_new_storm.o initialize_new_storm.c
+gcc -I. -g -Wall -Wno-unused   -c -o initialize_snow.o initialize_snow.c
+gcc -I. -g -Wall -Wno-unused   -c -o initialize_soil.o initialize_soil.c
+gcc -I. -g -Wall -Wno-unused   -c -o initialize_veg.o initialize_veg.c
+gcc -I. -g -Wall -Wno-unused   -c -o latent_heat_from_snow.o latent_heat_from_snow.c
+gcc -I. -g -Wall -Wno-unused   -c -o make_cell_data.o make_cell_data.c
+gcc -I. -g -Wall -Wno-unused   -c -o make_dist_prcp.o make_dist_prcp.c
+gcc -I. -g -Wall -Wno-unused   -c -o make_dmy.o make_dmy.c
+gcc -I. -g -Wall -Wno-unused   -c -o make_energy_bal.o make_energy_bal.c
+gcc -I. -g -Wall -Wno-unused   -c -o make_in_and_outfiles.o make_in_and_outfiles.c
+gcc -I. -g -Wall -Wno-unused   -c -o make_snow_data.o make_snow_data.c
+gcc -I. -g -Wall -Wno-unused   -c -o make_veg_var.o make_veg_var.c
+gcc -I. -g -Wall -Wno-unused   -c -o massrelease.o massrelease.c
+gcc -I. -g -Wall -Wno-unused   -c -o modify_Ksat.o modify_Ksat.c
+gcc -I. -g -Wall -Wno-unused   -c -o mtclim_vic.o mtclim_vic.c
+gcc -I. -g -Wall -Wno-unused   -c -o mtclim_wrapper.o mtclim_wrapper.c
+gcc -I. -g -Wall -Wno-unused   -c -o newt_raph_func_fast.o newt_raph_func_fast.c
+gcc -I. -g -Wall -Wno-unused   -c -o nrerror.o nrerror.c
+gcc -I. -g -Wall -Wno-unused   -c -o open_file.o open_file.c
+gcc -I. -g -Wall -Wno-unused   -c -o open_state_file.o open_state_file.c
+gcc -I. -g -Wall -Wno-unused   -c -o output_list_utils.o output_list_utils.c
+gcc -I. -g -Wall -Wno-unused   -c -o parse_output_info.o parse_output_info.c
+gcc -I. -g -Wall -Wno-unused   -c -o penman.o penman.c
+gcc -I. -g -Wall -Wno-unused   -c -o prepare_full_energy.o prepare_full_energy.c
+gcc -I. -g -Wall -Wno-unused   -c -o put_data.o put_data.c
+gcc -I. -g -Wall -Wno-unused   -c -o read_arcinfo_ascii.o read_arcinfo_ascii.c
+gcc -I. -g -Wall -Wno-unused   -c -o read_atmos_data.o read_atmos_data.c
+gcc -I. -g -Wall -Wno-unused   -c -o read_forcing_data.o read_forcing_data.c
+gcc -I. -g -Wall -Wno-unused   -c -o read_initial_model_state.o read_initial_model_state.c
+gcc -I. -g -Wall -Wno-unused   -c -o read_snowband.o read_snowband.c
+gcc -I. -g -Wall -Wno-unused   -c -o read_soilparam.o read_soilparam.c
+gcc -I. -g -Wall -Wno-unused   -c -o read_soilparam_arc.o read_soilparam_arc.c
+gcc -I. -g -Wall -Wno-unused   -c -o read_veglib.o read_veglib.c
+gcc -I. -g -Wall -Wno-unused   -c -o read_vegparam.o read_vegparam.c
+gcc -I. -g -Wall -Wno-unused   -c -o redistribute_during_storm.o redistribute_during_storm.c
+gcc -I. -g -Wall -Wno-unused   -c -o root_brent.o root_brent.c
+gcc -I. -g -Wall -Wno-unused   -c -o runoff.o runoff.c
+gcc -I. -g -Wall -Wno-unused   -c -o set_output_defaults.o set_output_defaults.c
+gcc -I. -g -Wall -Wno-unused   -c -o snow_intercept.o snow_intercept.c
+gcc -I. -g -Wall -Wno-unused   -c -o snow_melt.o snow_melt.c
+gcc -I. -g -Wall -Wno-unused   -c -o snow_utility.o snow_utility.c
+gcc -I. -g -Wall -Wno-unused   -c -o soil_conduction.o soil_conduction.c
+gcc -I. -g -Wall -Wno-unused   -c -o soil_thermal_eqn.o soil_thermal_eqn.c
+gcc -I. -g -Wall -Wno-unused   -c -o solve_snow.o solve_snow.c
+gcc -I. -g -Wall -Wno-unused   -c -o surface_fluxes.o surface_fluxes.c
+gcc -I. -g -Wall -Wno-unused   -c -o svp.o svp.c
+gcc -I. -g -Wall -Wno-unused   -c -o vicNl.o vicNl.c
+gcc -I. -g -Wall -Wno-unused   -c -o vicerror.o vicerror.c
+gcc -I. -g -Wall -Wno-unused   -c -o write_data.o write_data.c
+gcc -I. -g -Wall -Wno-unused   -c -o write_forcing_file.o write_forcing_file.c
+gcc -I. -g -Wall -Wno-unused   -c -o write_header.o write_header.c
+gcc -I. -g -Wall -Wno-unused   -c -o write_layer.o write_layer.c
+gcc -I. -g -Wall -Wno-unused   -c -o write_model_state.o write_model_state.c
+gcc -I. -g -Wall -Wno-unused   -c -o write_snow_data.o write_snow_data.c
+gcc -I. -g -Wall -Wno-unused   -c -o write_soilparam.o write_soilparam.c
+gcc -I. -g -Wall -Wno-unused   -c -o write_vegparam.o write_vegparam.c
+gcc -I. -g -Wall -Wno-unused   -c -o write_vegvar.o write_vegvar.c
+gcc -I. -g -Wall -Wno-unused   -c -o lakes.eb.o lakes.eb.c
+gcc -I. -g -Wall -Wno-unused   -c -o initialize_lake.o initialize_lake.c
+gcc -I. -g -Wall -Wno-unused   -c -o read_lakeparam.o read_lakeparam.c
+gcc -I. -g -Wall -Wno-unused   -c -o ice_melt.o ice_melt.c
+gcc -I. -g -Wall -Wno-unused   -c -o IceEnergyBalance.o IceEnergyBalance.c
+gcc -I. -g -Wall -Wno-unused   -c -o water_energy_balance.o water_energy_balance.c
+gcc -I. -g -Wall -Wno-unused   -c -o water_under_ice.o water_under_ice.c
+gcc -o vicNl CalcAerodynamic.o CalcBlowingSnow.o SnowPackEnergyBalance.o StabilityCorrection.o advected_sensible_heat.o alloc_atmos.o arno_evap.o calc_air_temperature.o calc_atmos_energy_bal.o calc_cloud_cover_fraction.o calc_forcing_stats.o calc_longwave.o calc_rainonly.o calc_root_fraction.o calc_snow_coverage.o calc_surf_energy_bal.o calc_veg_params.o calc_water_energy_balance_errors.o canopy_evap.o check_files.o check_state_file.o close_files.o cmd_proc.o compress_files.o compute_dz.o compute_pot_evap.o compute_treeline.o compute_zwt.o correct_precip.o display_current_settings.o dist_prec.o estimate_T1.o free_dist_prcp.o free_vegcon.o frozen_soil.o full_energy.o func_atmos_energy_bal.o func_atmos_moist_bal.o func_canopy_energy_bal.o func_surf_energy_bal.o get_dist.o get_force_type.o get_global_param.o initialize_atmos.o initialize_model_state.o initialize_global.o initialize_new_storm.o initialize_snow.o initialize_soil.o initialize_veg.o latent_heat_from_snow.o make_cell_data.o make_dist_prcp.o make_dmy.o make_energy_bal.o make_in_and_outfiles.o make_snow_data.o make_veg_var.o massrelease.o modify_Ksat.o mtclim_vic.o mtclim_wrapper.o newt_raph_func_fast.o nrerror.o open_file.o open_state_file.o output_list_utils.o parse_output_info.o penman.o prepare_full_energy.o put_data.o read_arcinfo_ascii.o read_atmos_data.o read_forcing_data.o read_initial_model_state.o read_snowband.o read_soilparam.o read_soilparam_arc.o read_veglib.o read_vegparam.o redistribute_during_storm.o root_brent.o runoff.o set_output_defaults.o snow_intercept.o snow_melt.o snow_utility.o soil_conduction.o soil_thermal_eqn.o solve_snow.o surface_fluxes.o svp.o vicNl.o vicerror.o write_data.o write_forcing_file.o write_header.o write_layer.o write_model_state.o write_snow_data.o write_soilparam.o write_vegparam.o write_vegvar.o lakes.eb.o initialize_lake.o read_lakeparam.o ice_melt.o IceEnergyBalance.o water_energy_balance.o water_under_ice.o -I. -g -Wall -Wno-unused -lm
+make[1]: Leaving directory `/home/stumbaugh/devel/VIC/src'
