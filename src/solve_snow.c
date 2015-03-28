@@ -176,6 +176,32 @@ double solve_snow(char                 overstory,
   vp        = atmos->vp[hidx];
   vpd       = atmos->vpd[hidx];
 
+  /* Scrape Sept 1 */
+
+	if ( day_in_year == 244 ){ // ~ Sept 1
+		/** Reset Snow Pack Variables after Complete Melt **/
+	    /*****************************
+	      No Snow Present or Falling
+	    *****************************/
+
+		snow->density    = 0.;
+		snow->depth      = 0.;
+		snow->surf_water = 0;
+		snow->pack_water = 0;
+		snow->surf_temp  = 0;
+		snow->pack_temp  = 0;
+		snow->coverage   = 0;
+		snow->snow_distrib_slope  = 0;
+		snow->store_snow = TRUE;
+		snow->snow_canopy=0.;
+		snow->swq = 0.;
+	    snow->snow              = FALSE;
+	    snow->MELTING        = FALSE;
+	    snow->last_snow      = MISSING;
+	    snow->albedo         = NEW_SNOW_ALB;
+
+	}
+
   /* initialize moisture variables */
   melt     = 0.;
   *ppt = 0.; 
