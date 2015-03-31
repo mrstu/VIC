@@ -42,6 +42,8 @@ void calc_root_fractions(veg_con_struct  *veg_con,
 
   Nveg      = veg_con[0].vegetat_type_num;
 
+//  printf("Here Nveg = %d\n",Nveg);
+
   for(veg=0;veg<Nveg;veg++) {
     sum_depth  = 0;
     sum_fract  = 0;
@@ -50,8 +52,9 @@ void calc_root_fractions(veg_con_struct  *veg_con,
     Lsum       = Lstep;
     Zsum       = 0;
     zone       = 0;
-    
+//    printf("Here iNveg = %d\n",veg);
     while(zone<options.ROOT_ZONES) {
+//    	printf("Here izone= %d\n",zone);
       Zstep = (double)veg_con[veg].zone_depth[zone];
       if((Zsum + Zstep) <= Lsum && Zsum >= Lsum - Lstep) {
 	/** CASE 1: Root Zone Completely in Soil Layer **/

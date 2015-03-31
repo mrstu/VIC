@@ -183,7 +183,7 @@ int main(int argc, char *argv[])
       filep.init_state = check_state_file(filenames.init_state, dmy, 
 					   &global_param, options.Nlayer, 
 					   options.Nnode, &startrec);
-
+    printf("Here %d!\n",200);
     /** open state file if model state is to be saved **/
     if ( options.SAVE_STATE && strcmp( filenames.statefile, "NONE" ) != 0 )
       filep.statefile = open_state_file(&global_param, filenames, options.Nlayer,
@@ -197,27 +197,33 @@ int main(int argc, char *argv[])
     ************************************/
   MODEL_DONE = FALSE;
   while(!MODEL_DONE) {
-
+    printf("Here %d!\n",200);
     soil_con = read_soilparam(filep.soilparam, &RUN_MODEL, &MODEL_DONE);
+    printf("Here %d!\n",202);
 
     if(RUN_MODEL) {
 
       NEWCELL=TRUE;
       cellnum++;
-
+      printf("Here RUN_MODEL (%d), cellnum (%d)\n",RUN_MODEL,cellnum);
       if (!options.OUTPUT_FORCE) {
 
+          printf("Here reading veg\n");
         /** Read Grid Cell Vegetation Parameters **/
         veg_con = read_vegparam(filep.vegparam, soil_con.gridcel,
                                 Nveg_type);
+        printf("Here root_fractions\n");
         calc_root_fractions(veg_con, &soil_con);
-
-        if ( options.LAKES ) 
-	  lake_con = read_lakeparam(filep.lakeparam, soil_con, veg_con);
-
+        printf("Here before lakes 1\n");
+        if ( options.LAKES ){
+            printf("Here before lakes 2\n");
+        	lake_con = read_lakeparam(filep.lakeparam, soil_con, veg_con);
+        }
+        printf("Here before lakes\n");
       } /* !OUTPUT_FORCE */
-
+      printf("Here make in and out files\n");
       /** Build Gridded Filenames, and Open **/
+      printf("Here lat (%f), lon (%f)\n",soil_con.lat, soil_con.lng);
       make_in_and_outfiles(&filep, &filenames, &soil_con, out_data_files);
 
       if (options.PRT_HEADER) {
@@ -246,10 +252,10 @@ int main(int argc, char *argv[])
 #if VERBOSE
       fprintf(stderr,"Initializing Forcing Data\n");
 #endif /* VERBOSE */
-
+      printf("Here Initializing atmos\n");
       initialize_atmos(atmos, dmy, filep.forcing, veg_lib, veg_con, veg_hist,
 		       &soil_con, out_data_files, out_data); 
-
+      printf("Here after Initializing atmos\n");
       if (!options.OUTPUT_FORCE) {
 
         /**************************************************

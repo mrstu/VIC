@@ -43,10 +43,12 @@ void make_in_and_outfiles(filep_struct         *filep,
   char   latchar[20], lngchar[20], junk[6];
   int filenum;
 
+//  sprintf(junk, "%%.%if", 5);
   sprintf(junk, "%%.%if", options.GRID_DECIMAL);
   sprintf(latchar, junk, soil->lat);
   sprintf(lngchar, junk, soil->lng);
- 
+//  printf("options.GRID_DECIMAL %d\n", options.GRID_DECIMAL);
+//  printf("Here lat (%s), lon (%s)\n",latchar, lngchar);
   /********************************
   Input Forcing Files
   ********************************/
@@ -55,6 +57,8 @@ void make_in_and_outfiles(filep_struct         *filep,
   strcat(filenames->forcing[0], latchar);
   strcat(filenames->forcing[0], "_");
   strcat(filenames->forcing[0], lngchar);
+
+//  printf("Here forcing file: %s\n",filenames->forcing[0]);
   if(param_set.FORCE_FORMAT[0] == BINARY)
     filep->forcing[0] = open_file(filenames->forcing[0], "rb");
   else
@@ -76,6 +80,7 @@ void make_in_and_outfiles(filep_struct         *filep,
   Output Files
   ********************************/
 
+//  printf("Here options.Noutfiles %d\n",options.Noutfiles);
   for (filenum=0; filenum<options.Noutfiles; filenum++) {
     strcpy(out_data_files[filenum].filename, filenames->result_dir);
     strcat(out_data_files[filenum].filename, "/");
@@ -84,9 +89,12 @@ void make_in_and_outfiles(filep_struct         *filep,
     strcat(out_data_files[filenum].filename, latchar);
     strcat(out_data_files[filenum].filename, "_");
     strcat(out_data_files[filenum].filename, lngchar);
+//    printf("Here out file: %s\n",out_data_files[filenum].filename);
     if(options.BINARY_OUTPUT)
       out_data_files[filenum].fh = open_file(out_data_files[filenum].filename, "wb");
     else out_data_files[filenum].fh = open_file(out_data_files[filenum].filename, "w");
   }
+//  exit(1);
+
 
 } 

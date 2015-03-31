@@ -186,7 +186,7 @@ void initialize_global() {
   // input options
   options.ALB_SRC               = FROM_VEGLIB;
   options.BASEFLOW              = ARNO;
-  options.GRID_DECIMAL          = 2;
+  options.GRID_DECIMAL          = 5;
   options.JULY_TAVG_SUPPLIED    = FALSE;
   options.LAI_SRC               = FROM_VEGLIB;
   options.ORGANIC_FRACT         = FALSE;
